@@ -25,6 +25,9 @@ class decoder(WebHandler):
         pn = self.request.GET.get("pn")
         if pn:
             decode = Decoder(pn)
+            if pn in db["iddb"]:
+                decode.flashId = db["iddb"][pn]["n"]
+                decode.controller = db["iddb"][pn].get("c")
             return JsonResponse({"result": True, "data": decode.dict()})
         else:
             return JsonResponse({"result": False, "message": "Missing argument 'pn'"})
