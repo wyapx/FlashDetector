@@ -4,7 +4,7 @@ class Classification(BaseModel):
     ce: str = "未知"
     ch: str = "未知"
     rb: str = "未知"
-    die: str = 0
+    die: str = "未知"
 
 
 class Decode_packet(BaseModel):
